@@ -16,6 +16,7 @@ app.get("/", (req, res) => {
 });
 
 io.on("connection", (socket) => {
+  console.log("conectado");
   socket.on("message", (msg) => {
     console.log("message recibido:", msg);
     io.emit("socketimprimir", msg);
