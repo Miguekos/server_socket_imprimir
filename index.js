@@ -1,7 +1,7 @@
 var app = require("express")();
 var http = require("http").createServer(app);
 var io = require("socket.io")(http, {
-  path: "/imprimir",
+  path: "/socketimpresora",
   serveClient: false,
   // below are engine.IO options
   pingInterval: 10000,
