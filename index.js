@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 
 io.on("connection", (socket) => {
   console.log("conectado");
+  io.emit("an event sent to all connected clients");
   socket.on("message", (msg) => {
     console.log("message recibido:", msg);
     io.emit("socketimprimir", msg);
@@ -30,8 +31,6 @@ io.on("connection", (socket) => {
 //     console.log("user disconnected");
 //   });
 // });
-
-io.emit("an event sent to all connected clients");
 
 http.listen(7667, () => {
   console.log("listening on *:7667");
