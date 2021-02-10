@@ -1,0 +1,20 @@
+version: "3"
+services:
+  app:
+    # image: 192.168.4.207:5000/ms-server_tcp-js
+    build:
+      context: .
+    ports:
+      - 7667:7667
+    hostname: server_socket_impresora
+    restart: always
+    # deploy:
+    #   placement:
+    #     constraints:
+    #       - node.role == manager
+    # volumes:
+    #   # -   ./:/usr/local/nodeapps/
+    #   - /usr/local/volumes/server_tcp:/root/.pm2/logs
+
+    # command: pm2-runtime server.config.js --env development
+    command: node index.js
