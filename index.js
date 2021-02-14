@@ -23,6 +23,16 @@ io.on("connection", (socket) => {
     io.emit("socketimprimir", msg);
     console.log(`Accion en: socketimprimir: ${msg}`);
   });
+  socket.on("recibe_socketimprimir_interno", (msg) => {
+    console.log("message socketimprimir_interno:", msg);
+    io.emit("socketimprimir_interno", msg);
+    console.log(`Accion en: socketimprimir_interno: ${msg}`);
+  });
+  socket.on("recibe_socketimprimir_cliente", (msg) => {
+    console.log("socketimprimir_cliente recibido:", msg);
+    io.emit("socketimprimir_cliente", msg);
+    console.log(`Accion en: socketimprimir_cliente: ${msg}`);
+  });
 });
 
 // io.on("connection", (socket) => {
